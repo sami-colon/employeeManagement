@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
+import { EmployeePageComponent } from './employee-page/employee-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavBarComponent
+    MainNavBarComponent,
+    EmployeePageComponent
   ],
   imports: [
     BrowserModule,
