@@ -3,21 +3,16 @@
   <div class="col-12 p-0 m-0 text-right px-5 pt-5">
     <h3 style="color: deepskyblue; border: 2px solid deepskyblue; border-bottom: 0" class="px-5 m-0">Total of <span style="color: orange">{{employeesData.length}}</span> employees</h3>
   </div>
-<!--  employee card-->
   <div class="col-12 px-5 m-0">
     <div class="row p-0 m-0" style="border: 2px solid deepskyblue">
       <div class="col-3 m-0 p-2 text-right" *ngFor="let emp of dataSource" (click)="openUpdate(emp.id)">
-        <div class="card hover-sp mx-auto" style="border: 2px solid deepskyblue; width: 205px;">
-          <img class="card-img-top" [src]="emp.avatar"
-               alt="Card image cap" style="height: 200px; width: 200px; object-position: center; object-fit: cover">
-          <div class="card-body p-0 m-0" style="background-color: deepskyblue">
-            <p class="card-title text-white text-center">{{emp.first_name}} {{emp.last_name}}</p>
-          </div>
-        </div>
+        <!--  employee card-->
+        <app-employee-card [employee]="emp"></app-employee-card>
       </div>
     </div>
   </div>
   <div class="col-12 px-5 m-0 pb-3">
+<!--    pagination-->
     <mat-paginator [length]="employeesData.length"
                    [pageSize]="8"  style="border: 2px solid deepskyblue; border-top: 0">
     </mat-paginator>

@@ -8,12 +8,14 @@ import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import { EmployeeCardComponent } from './employee-card/employee-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavBarComponent,
-    EmployeePageComponent
+    EmployeePageComponent,
+    EmployeeCardComponent
   ],
   imports: [
     BrowserModule,
