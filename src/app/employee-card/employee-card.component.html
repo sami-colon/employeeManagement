@@ -1,4 +1,4 @@
-<div class="card hover-sp mx-auto" style="border: 2px solid deepskyblue; width: 205px;">
+<div class="card hover-sp mx-auto" style="border: 2px solid deepskyblue; width: 205px;"  (click)="openUpdate(employee.id)">
   <img class="card-img-top" [src]="employee.avatar" (error)="useDefaultImage()"
        alt="Card image cap" style="height: 200px; width: 200px; object-position: center; object-fit: cover">
   <div class="card-body p-0 m-0" style="background-color: deepskyblue">

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-card',
@@ -7,12 +8,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class EmployeeCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   @Input() employee;
 
   ngOnInit() {
   }
   useDefaultImage(): void {
     this.employee.avatar = 'assets/images/default_avatar.PNG';
+  }
+  openUpdate(id): void {
+    this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl(`/employees/${id}`));
   }
 }

@@ -55,9 +55,6 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   checkValidity(fname, lname, currEmail): boolean {
     return fname.checkValidity() && lname.checkValidity() && currEmail.checkValidity();
   }
-  openUpdate(id): void {
-    this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl(`/employees/${id}`));
-  }
   useDefaultImage(): void {
     this.currentEmployee[0].avatar = 'assets/images/default_avatar.PNG';
   }
