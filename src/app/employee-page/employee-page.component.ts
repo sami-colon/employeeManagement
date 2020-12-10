@@ -56,9 +56,7 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
     this.dbService.updateEmployee(id, emp[0]);
     this.showAllData = true;
     this.currentId = '';
-    this.currentEmployee = [];
     this.ngOnInit();
-    this.router.navigateByUrl('');
   }
   checkValidity(fname, lname, currEmail): boolean {
     return fname.checkValidity() && lname.checkValidity() && currEmail.checkValidity();
