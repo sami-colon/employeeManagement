@@ -11,4 +11,7 @@ export class DbService {
   getDb(): any {
     return this.dbData;
   }
+  removeEmployee(id): void {
+    this.dbData = this.dbData.filter(x => x.id !== id);
+  }
 }

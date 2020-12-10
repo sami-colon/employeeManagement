@@ -7,6 +7,7 @@ import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
 import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import {MatPaginatorModule} from '@angular/material';
     MainNavBarComponent,
     EmployeePageComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatPaginatorModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

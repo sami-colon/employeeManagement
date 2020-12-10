@@ -16,6 +16,12 @@
   opacity: 0.35;
   color: black;
 }
+.danger-bottom{
+  border-bottom: 2px solid red;
+}
+.success-bottom{
+  border-bottom: 2px solid green;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

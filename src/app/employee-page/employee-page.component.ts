@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {DbService} from '../commonServices/db.service';
 import {MatPaginator} from '@angular/material';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-page',
@@ -10,11 +10,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EmployeePageComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  constructor(private dbService: DbService, private activatedRoute: ActivatedRoute) {
+  constructor(private dbService: DbService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe( params => {
       this.currentId = params.id;
       if (this.currentId && this.currentId > 0) {
         this.showAllData = false;
+        console.log(this.currentId);
       }
     });
   }
@@ -22,11 +23,14 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   dataSource = [];
   showAllData = true;
   currentId = -1;
+  currentEmployee = [];
   ngOnInit() {
     this.employeesData = this.dbService.getDb();
     if (this.showAllData) {
       this.dataSource = this.employeesData.slice(0, 8);
-
+    } else {
+      this.currentEmployee = this.employeesData.filter(x => x.id.toString() === this.currentId);
+      console.log(this.currentEmployee);
     }
   }
   ngAfterViewInit() {
@@ -39,5 +43,13 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
         this.dataSource = this.employeesData.slice(0, 8);
       });
     }
+  }
+  removeEmployee(id): void {
+    this.dbService.removeEmployee(id);
+    this.showAllData = true;
+    this.currentId = -1;
+    this.currentEmployee = [];
+    this.ngOnInit();
+    this.router.navigateByUrl('');
   }
 }

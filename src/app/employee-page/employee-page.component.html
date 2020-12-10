@@ -1,4 +1,4 @@
-<div class="row p-0 m-0">
+<div class="row p-0 m-0" *ngIf="showAllData">
   <div class="col-12 p-0 m-0 text-right px-5 pt-5">
     <h3 style="color: deepskyblue; border: 2px solid deepskyblue; border-bottom: 0" class="px-5 m-0">Total of <span style="color: orange">{{employeesData.length}}</span> employees</h3>
   </div>
@@ -19,5 +19,27 @@
     <mat-paginator [length]="employeesData.length"
                    [pageSize]="8"  style="border: 2px solid deepskyblue; border-top: 0">
     </mat-paginator>
+  </div>
+</div>
+<div class="row p-0 m-0" *ngIf="!showAllData">
+  <div class="col-12 p-0 m-0 text-right px-5 pt-5">
+    <div style="color: deepskyblue; border: 2px solid deepskyblue;" class="row p-0 m-0">
+      <div class="col-3 p-2 m-0" *ngFor="let curr of currentEmployee">
+        <img [src]="curr.avatar" style="width: 300px; height: 300px; object-fit: cover; object-position: center; border: 2px solid deepskyblue">
+      </div>
+      <div class="col-9 p-2 m-0 text-dark text-left font-weight-bold" *ngFor="let curr of currentEmployee">
+        Employee Id:<input type="text" class="form-control my-2" placeholder="Employee Id" disabled [value]="curr.id">
+        First name:<input type="text" class="form-control my-2" placeholder="Employee First name" required [(ngModel)]="curr.first_name" #fname
+                          [class.danger-bottom]="!fname.checkValidity()" [class.success-bottom]="fname.checkValidity()">
+        Last name:<input type="text" class="form-control my-2" placeholder="Employee Last name" required [(ngModel)]="curr.last_name" #lname
+                         [class.danger-bottom]="!lname.checkValidity()" [class.success-bottom]="lname.checkValidity()">
+        Email Id:<input type="email" class="form-control my-2" placeholder="Employee Last name" required [(ngModel)]="curr.email" #currEmail
+                        [class.danger-bottom]="!currEmail.checkValidity()" [class.success-bottom]="currEmail.checkValidity()">
+      </div>
+      <div class="col-12 px-5 py-2 m-0 text-left" *ngFor="let curr of currentEmployee">
+        <button class="btn px-5 py-2 text-white" style="background-color: deepskyblue">Update</button>
+        <button class="btn px-5 py-2 text-white ml-2" style="background-color: orange" (click)="removeEmployee(curr.id)">Remove</button>
+      </div>
+    </div>
   </div>
 </div>
