@@ -13,7 +13,7 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   constructor(private dbService: DbService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe( params => {
       this.currentId = params.id;
-      if (this.currentId && this.currentId > 0) {
+      if (this.currentId && parseInt(this.currentId, 10) > 0) {
         this.showAllData = false;
         console.log(this.currentId);
       }
@@ -22,7 +22,7 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   employeesData = [];
   dataSource = [];
   showAllData = true;
-  currentId = -1;
+  currentId = '';
   currentEmployee = [];
   ngOnInit() {
     this.employeesData = this.dbService.getDb();
@@ -47,9 +47,26 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   removeEmployee(id): void {
     this.dbService.removeEmployee(id);
     this.showAllData = true;
-    this.currentId = -1;
+    this.currentId = '';
     this.currentEmployee = [];
     this.ngOnInit();
     this.router.navigateByUrl('');
+  }
+  updateEmployee(id, emp): void {
+    this.dbService.updateEmployee(id, emp[0]);
+    this.showAllData = true;
+    this.currentId = '';
+    this.currentEmployee = [];
+    this.ngOnInit();
+    this.router.navigateByUrl('');
+  }
+  checkValidity(fname, lname, currEmail): boolean {
+    return fname.checkValidity() && lname.checkValidity() && currEmail.checkValidity();
+  }
+  openUpdate(id): void {
+    this.showAllData = false;
+    this.currentId = id.toString();
+    this.ngOnInit();
+    console.log(this.currentId, typeof this.currentId, this.currentEmployee);
   }
 }

@@ -14,4 +14,13 @@ export class DbService {
   removeEmployee(id): void {
     this.dbData = this.dbData.filter(x => x.id !== id);
   }
+  updateEmployee(id, data): void {
+    this.dbData = this.dbData.map(emp => {
+      if (emp.id === id) {
+        return data;
+      } else {
+        return emp;
+      }
+    });
+  }
 }
