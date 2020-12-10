@@ -23,4 +23,7 @@ export class DbService {
       }
     });
   }
+  addEmployee(emp): void {
+    this.dbData = [emp, ...this.dbData];
+  }
 }
