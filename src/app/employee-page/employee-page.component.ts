@@ -58,4 +58,7 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   openUpdate(id): void {
     this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl(`/employees/${id}`));
   }
+  useDefaultImage(): void {
+    this.currentEmployee[0].avatar = 'assets/images/default_avatar.PNG';
+  }
 }

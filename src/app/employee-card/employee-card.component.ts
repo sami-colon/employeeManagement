@@ -12,5 +12,7 @@ export class EmployeeCardComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  useDefaultImage(): void {
+    this.employee.avatar = 'assets/images/default_avatar.PNG';
+  }
 }
