@@ -46,25 +46,16 @@ export class EmployeePageComponent implements OnInit, AfterViewInit {
   }
   removeEmployee(id): void {
     this.dbService.removeEmployee(id);
-    this.showAllData = true;
-    this.currentId = '';
-    this.currentEmployee = [];
-    this.ngOnInit();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl('/employees/'));
   }
   updateEmployee(id, emp): void {
     this.dbService.updateEmployee(id, emp[0]);
-    this.showAllData = true;
-    this.currentId = '';
-    this.ngOnInit();
+    this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl('/employees/'));
   }
   checkValidity(fname, lname, currEmail): boolean {
     return fname.checkValidity() && lname.checkValidity() && currEmail.checkValidity();
   }
   openUpdate(id): void {
-    this.showAllData = false;
-    this.currentId = id.toString();
-    this.ngOnInit();
-    console.log(this.currentId, typeof this.currentId, this.currentEmployee);
+    this.router.navigateByUrl('/employees/add/new').then(x => this.router.navigateByUrl(`/employees/${id}`));
   }
 }
