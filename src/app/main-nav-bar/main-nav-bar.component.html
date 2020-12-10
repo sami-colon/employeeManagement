@@ -1,1 +1,11 @@
-<p>main-nav-bar works!</p>
+<div class="row p-0 m-0 py-3 bg-white-sp" style="font-size: 1.75rem;">
+  <div class="col-2 font-weight-bold text-left py-2">
+    Workforce
+  </div>
+  <div class="col-2 p-0 m-0 px-2 text-center">
+    <div class="p-2 hover-sp" [class.active-sp]="isEmployeeTab" [class.inactive-sp]="isAddEmployeeTab" (click)="openMe(1)">Employees</div>
+  </div>
+  <div class="col-2 p-0 m-0 px-2 text-center">
+    <div class="p-2 hover-sp" [class.active-sp]="isAddEmployeeTab" [class.inactive-sp]="isEmployeeTab" (click)="openMe(2)">Add Employees</div>
+  </div>
+</div>

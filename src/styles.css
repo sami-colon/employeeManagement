@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.bg-white-sp{
+  background-color: lightgrey;
+}
+.hover-sp:hover{
+  opacity: 1;
+  cursor: pointer;
+  background-color: deepskyblue;
+  color: white;
+}
+.active-sp{
+  background-color: deepskyblue;
+  color: white;
+}
+.inactive-sp{
+  background-color: deepskyblue;
+  opacity: 0.35;
+  color: black;
+}
