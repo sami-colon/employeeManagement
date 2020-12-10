@@ -4,7 +4,7 @@
   </div>
   <div class="col-12 px-5 m-0">
     <div class="row p-0 m-0">
-      <div class="col-3 m-0 p-2 text-right" *ngFor="let emp of employeesData">
+      <div class="col-3 m-0 p-2 text-right" *ngFor="let emp of dataSource">
         <div class="card hover-sp mx-auto" style="border: 2px solid deepskyblue; width: 205px;">
           <img class="card-img-top" [src]="emp.avatar"
                alt="Card image cap" style="height: 200px; width: 200px; object-position: center; object-fit: cover">
@@ -14,5 +14,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="col-12 px-5 m-0 py-3">
+    <mat-paginator [length]="employeesData.length"
+                   [pageSize]="8">
+    </mat-paginator>
   </div>
 </div>
