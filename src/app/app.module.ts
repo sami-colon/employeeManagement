@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
+import { EmployeeAddComponent } from './employee-add/employee-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavBarComponent,
     EmployeePageComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    EmployeeAddComponent
   ],
   imports: [
     BrowserModule,
